@@ -1,0 +1,11 @@
+# Compiled files
+*.tfstate
+*.tfstate.backup
+.terragrunt-cache
+
+# Module directory
+.terraform/
+*-id_rsa
+
+# Vim files
+.*.sw?
