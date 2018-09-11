@@ -1,5 +1,9 @@
 variable "bucket_prefix" {}
 variable "env" {}
+variable "root_pr_to_include" {}
+variable "root_pr_from_include" {}
+variable "root_get_tfvars_dir" {}
+variable "root_get_parent_tfvars_dir" {}
 
 provider "aws" {
   version = "1.32.0"
@@ -26,14 +30,18 @@ module "meta" {
 
 locals {
   extra_tags = {
-    md5sum = "${md5(module.meta.nugget)}"
+    md5sum                     = "${md5(module.meta.nugget)}"
+    root_pr_to_include         = "${var.root_pr_to_include}"
+    root_pr_from_include       = "${var.root_pr_from_include}"
+    root_get_tfvars_dir        = "${var.root_get_tfvars_dir}"
+    root_get_parent_tfvars_dir = "${var.root_get_parent_tfvars_dir}"
   }
 }
 
 resource "aws_s3_bucket" "brawndo_test" {
-  bucket = "${format("%s-%s", var.bucket_prefix, var.env)}"
+  bucket = "${var.bucket_prefix}-${var.env}"
   acl    = "private"
-  tags   = "${module.meta.tags}"
+  tags   = "${merge(module.meta.tags, local.extra_tags)}"
 }
 
 module "arpdoc" {
@@ -43,9 +51,8 @@ module "arpdoc" {
 }
 
 resource "aws_s3_bucket_object" "brawndo_test" {
-  bucket = "${aws_s3_bucket.brawndo_test.id}"
-  key    = "${module.meta.nugget}"
-
+  bucket  = "${aws_s3_bucket.brawndo_test.id}"
+  key     = "${module.meta.nugget}"
   content = "${module.arpdoc.json}"
 
   #tags = "${merge(module.meta.tags, local.extra_tags)}"
