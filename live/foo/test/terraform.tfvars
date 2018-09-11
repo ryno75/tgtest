@@ -21,4 +21,5 @@ terragrunt = {
 }
 
 env    = "foo"
+leaf_name = "foo"
 region = "us-east-1"

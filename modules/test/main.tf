@@ -1,19 +1,3 @@
-variable "region" {}
-variable "bucket_prefix" {}
-variable "project" {}
-variable "env" {}
-variable "leaf_name" {}
-variable "root_pr_to_include" {}
-variable "root_pr_from_include" {}
-variable "root_get_tfvars_dir" {}
-variable "root_get_parent_tfvars_dir" {}
-variable "root_get_aws_account_id" {}
-variable "mod_pr_to_include" {}
-variable "mod_pr_from_include" {}
-variable "mod_parent_folder" {}
-variable "mod_get_tfvars_dir" {}
-variable "mod_get_parent_tfvars_dir" {}
-
 provider "aws" {
   version = "1.32.0"
   profile = "ietest"
