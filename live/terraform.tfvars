@@ -12,10 +12,14 @@ terragrunt = {
         "-var", "root_get_parent_tfvars_dir=${get_parent_tfvars_dir()}",
         "-var", "root_get_aws_account_id=${get_aws_account_id()}",
       ]
+      required_var_files = [
+        "${get_parent_tfvars_dir()}/terraform.tfvars"
+      ]
       optional_var_files = [
-        "${get_parent_tfvars_dir()}/common.tfvars}"
+        "${get_tfvars_dir()}/${path_relative_from_include()}/common.tfvars",
       ]
     }
   }
 }
 
+bucket_prefix = "brawndo"

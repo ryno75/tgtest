@@ -2,7 +2,7 @@
 terragrunt = {
   terraform {
     source = "git::git@github.com:ryno75/tgtest//modules/test"
-    extra_arguments "commons" {
+    extra_arguments "bar_args" {
       commands = ["${get_terraform_commands_that_need_vars()}"]
       arguments = [
         "-var", "mod_pr_to_include=${path_relative_to_include()}",

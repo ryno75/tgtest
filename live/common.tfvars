@@ -1,1 +1,1 @@
-bucket_prefix = "brawndo-test"
+project = "test"

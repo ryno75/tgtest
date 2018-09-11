@@ -1,4 +1,5 @@
 variable "bucket_prefix" {}
+variable "project" {}
 variable "env" {}
 variable "root_pr_to_include" {}
 variable "root_pr_from_include" {}
@@ -50,7 +51,7 @@ locals {
 }
 
 resource "aws_s3_bucket" "brawndo_test" {
-  bucket = "${var.bucket_prefix}-${var.env}"
+  bucket = "${var.bucket_prefix}-${var.project}-${var.env}"
   acl    = "private"
   tags   = "${merge(module.meta.tags, local.extra_tags)}"
 }
