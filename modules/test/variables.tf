@@ -2,7 +2,7 @@ variable "region" {}
 variable "bucket_prefix" {}
 variable "project" {}
 variable "env" {}
-variable "leaf_name" {}
+variable "leaf" {}
 variable "root_pr_to_include" {}
 variable "root_pr_from_include" {}
 variable "root_get_tfvars_dir" {}

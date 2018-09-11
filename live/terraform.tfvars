@@ -28,5 +28,5 @@ terragrunt = {
 }
 
 # other common variables
-region = "us-east-1"
+#region = "us-east-1"
 bucket_prefix = "brawndo"

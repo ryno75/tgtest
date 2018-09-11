@@ -36,7 +36,7 @@ locals {
 }
 
 resource "aws_s3_bucket" "brawndo_test" {
-  bucket = "${var.bucket_prefix}-${var.project}-${var.leaf_name}"
+  bucket = "${var.bucket_prefix}-${var.project}-${var.leaf}"
   acl    = "private"
   tags   = "${merge(module.meta.tags, local.extra_tags)}"
 }

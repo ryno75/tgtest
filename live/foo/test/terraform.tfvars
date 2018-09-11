@@ -9,6 +9,7 @@ terragrunt = {
         "-var", "mod_get_tfvars_dir=${get_tfvars_dir()}",
         "-var", "mod_get_parent_tfvars_dir=${get_parent_tfvars_dir()}",
       ]
+      # This doesn't work for some strange reason
       env_vars = {
         TF_VAR_leaf_name = "foo"
       }
@@ -20,6 +21,5 @@ terragrunt = {
   }
 }
 
-env    = "foo"
-leaf_name = "foo"
+leaf   = "foo"
 region = "us-east-1"
