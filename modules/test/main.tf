@@ -11,7 +11,7 @@ module "meta" {
   app_role          = "Bar"
   customer_facing   = "false"
   department        = "160-TechOps"
-  environment       = "${var.env}"
+  environment       = "${var.leaf}"
   owner             = "infra.eng.sre@smartsheet.com"
   project           = "Nimbus"
   shutdown_behavior = "always_on"
