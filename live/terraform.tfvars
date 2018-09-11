@@ -13,7 +13,7 @@ terragrunt = {
         "-var", "root_get_aws_account_id=${get_aws_account_id()}",
       ]
       optional_var_files = [
-        "${get_tfvars_dir()}/${find_in_parent_folders("common.tfvars", "ignore")}"
+        "${get_parent_tfvars_dir()}/common.tfvars}"
       ]
     }
   }
