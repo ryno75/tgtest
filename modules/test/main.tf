@@ -29,8 +29,6 @@ locals {
     root_tfvars_dir        = "${var.root_get_tfvars_dir}"
     root_parent_tfvars_dir = "${var.root_get_parent_tfvars_dir}"
     aws_account_id         = "${var.root_get_aws_account_id}"
-    mod_pr_to_include      = "${var.mod_pr_to_include}"
-    mod_pr_from_include    = "${var.mod_pr_from_include}"
     mod_parent_folder      = "${var.mod_parent_folder}"
     mod_tfvars_dir         = "${var.mod_get_tfvars_dir}"
     mod_parent_tfvars_dir  = "${var.mod_get_parent_tfvars_dir}"
