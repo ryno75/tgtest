@@ -4,6 +4,12 @@ variable "root_pr_to_include" {}
 variable "root_pr_from_include" {}
 variable "root_get_tfvars_dir" {}
 variable "root_get_parent_tfvars_dir" {}
+variable "root_get_account_id" {}
+variable "mod_pr_to_include" {}
+variable "mod_pr_from_include" {}
+variable "mod_parent_folder" {}
+variable "mod_get_tfvars_dir" {}
+variable "mod_get_parent_tfvars_dir" {}
 
 provider "aws" {
   version = "1.32.0"
@@ -30,11 +36,17 @@ module "meta" {
 
 locals {
   extra_tags = {
-    md5sum                     = "${md5(module.meta.nugget)}"
-    root_pr_to_include         = "${var.root_pr_to_include}"
-    root_pr_from_include       = "${var.root_pr_from_include}"
-    root_get_tfvars_dir        = "${var.root_get_tfvars_dir}"
-    root_get_parent_tfvars_dir = "${var.root_get_parent_tfvars_dir}"
+    md5sum                 = "${md5(module.meta.nugget)}"
+    root_pr_to_include     = "${var.root_pr_to_include}"
+    root_pr_from_include   = "${var.root_pr_from_include}"
+    root_tfvars_dir        = "${var.root_get_tfvars_dir}"
+    root_parent_tfvars_dir = "${var.root_get_parent_tfvars_dir}"
+    account_id             = "${var.root_get_parent_tfvars_dir}"
+    mod_pr_to_include      = "${var.mod_pr_to_include}"
+    mod_pr_from_include    = "${var.mod_pr_from_include}"
+    mod_parent_folder      = "${var.mod_parent_folder}"
+    mod_tfvars_dir         = "${var.mod_get_tfvars_dir}"
+    mod_parent_tfvars_dir  = "${var.mod_get_parent_tfvars_dir}"
   }
 }
 
