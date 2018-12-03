@@ -25,6 +25,17 @@ terragrunt = {
       ]
     }
   }
+
+  remote_state {
+    backend = "s3"
+
+    config {
+      encrypt        = true
+      bucket         = "com.smartsheet.ietest.rykennedy.terraform"
+      key            = "${path_relative_to_include()}/terraform.tfstate"
+      region         = "us-west-2"
+    }
+  }
 }
 
 # other common variables

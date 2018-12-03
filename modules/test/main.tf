@@ -10,7 +10,6 @@ terraform {
 
 module "meta" {
   source            = "git::ssh://git@github.hq.smartsheet.com/CloudOps/tfm_aws_meta.git"
-  version           = "0.1.0"
   application       = "Foo"
   app_role          = "Bar"
   customer_facing   = "false"
@@ -18,11 +17,11 @@ module "meta" {
   environment       = "${var.leaf}"
   owner             = "infra.eng.sre@smartsheet.com"
   project           = "Nimbus"
-  shutdown_behavior = "always_on"
-  tf_state_bucket   = "com.smartsheet.pipeline.dev.terraform"
+  tf_state_bucket   = "com.smartsheet.ietst.terraform"
   tf_state_key      = "brawndo_test.tfstate"
-  tf_lock_table     = "com.smartsheet.pipeline.dev.terraform-lock-table"
-  tf_repo           = "git::ssh://git@github.hq.smartsheet.com/CloudOps/foo.git"
+  tf_module_repo    = "https://github.com/ryno75/tgtest.git/modules/test"
+  tf_module_version = "0.0.0"
+  tg_repo           = "https://github.com/ryno75/tgtest.git"
 }
 
 locals {
