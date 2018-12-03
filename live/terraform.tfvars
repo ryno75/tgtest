@@ -1,6 +1,9 @@
 # Terragrunt is a thin wrapper for Terraform that provides extra tools for working with multiple Terraform modules,
 # remote state, and locking: https://github.com/gruntwork-io/terragrunt
 terragrunt = {
+  # IE Test org admin role
+  iam_role = "arn:aws:iam::388610224239:role/OrganizationAccountAccessRole"
+
   # Configure root level variables that all resources can inherit
   terraform {
     extra_arguments "commons" {
