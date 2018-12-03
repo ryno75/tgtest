@@ -4,6 +4,10 @@ provider "aws" {
   region  = "${var.region}"
 }
 
+terraform {
+  backend "s3" {}
+}
+
 module "meta" {
   source            = "git::ssh://git@github.hq.smartsheet.com/CloudOps/tfm_aws_meta.git"
   version           = "0.1.0"

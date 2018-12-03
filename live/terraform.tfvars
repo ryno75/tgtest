@@ -20,7 +20,7 @@ terragrunt = {
       optional_var_files = [
         # common.tfvars file in PWD
         "${get_tfvars_dir()}/${path_relative_from_include()}/common.tfvars",
-        # common.tfvars file in all parent dirs of the calling leaf
+        # common.tfvars file in parent dir of the calling leaf
         "${get_tfvars_dir()}/${find_in_parent_folders("common.tfvars", "ignore")}"
       ]
     }

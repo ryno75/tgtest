@@ -1,5 +1,9 @@
 # Bar conf
 terragrunt = {
+  include {
+      path = "${find_in_parent_folders()}"
+  }
+
   terraform {
     source = "git::git@github.com:ryno75/tgtest//modules/test"
     extra_arguments "bar_args" {
@@ -14,10 +18,6 @@ terragrunt = {
         TF_VAR_leaf = "bar"
       }
     }
-  }
-
-  include {
-      path = "${find_in_parent_folders()}"
   }
 }
 
